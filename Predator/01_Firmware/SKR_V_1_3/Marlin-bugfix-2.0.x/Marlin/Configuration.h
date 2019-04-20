@@ -1,6 +1,18 @@
 
 #pragma once
 
+//!===========================================================================
+//!============================ DELTA Printer Predator Setup =================
+//!===========================================================================
+//!== This is configuration setup for Delta Printer Predator                 ==
+//!== USED combination for this setup :                                      ==
+//!== * SKR V1.3                                                             ==
+//!== * TMC 2208 Standalone                                                  ==
+//!== * Display 12864 HD                                                     ==
+//!== Please before you change anything be sure you know what you doing..    ==
+//!==                                                                        ==
+//!===========================================================================
+
 // Anycubic Probe version 1 or 2 see README.md; 0 for no probe 
 //** Predator použivat typ 2 ! 
 #define ANYCUBIC_PROBE_VERSION 2
@@ -15,15 +27,7 @@
 //** Verze Konfigurace
 #define CONFIGURATION_H_VERSION 020000
 
-//===========================================================================
-//============================= DELTA Printer ===============================
-//===========================================================================
-// For a Delta printer start with one of the configuration files in the
-// config/examples/delta directory and customize for your machine.
-//
-
 // @section info
-
 // User-specified version info of this build to display in [Pronterface, etc] terminal window during
 // startup. Implementation of an idea by Prof Braino to inform user that any changes made to this
 // build by the user have been successfully uploaded into firmware.
@@ -75,7 +79,7 @@
 
 // The following define selects which electronics board you have.
 // Please choose the name from boards.h that matches your setup
-//** Deska SKR v 1.3
+//**! Deska SKR v 1.3
 #ifndef MOTHERBOARD
   #define MOTHERBOARD BOARD_BIGTREE_SKR_V1_3
 #endif
@@ -84,13 +88,13 @@
 // Displayed in the LCD "Ready" message
 #define CUSTOM_MACHINE_NAME "Predator"
 
-//** Nastaveni Extruderu
+//**! Nastaveni Extruderu
 
 // This defines the number of extruders
 // :[1, 2, 3, 4, 5, 6]
 #define EXTRUDERS 1
 
-// Generally expected filament diameter (1.75, 2.85, 3.0, ...). Used for Volumetric, Filament Width Sensor, etc.
+//! Generally expected filament diameter (1.75, 2.85, 3.0, ...). Used for Volumetric, Filament Width Sensor, etc.
 #define DEFAULT_NOMINAL_FILAMENT_DIA 1.75
 
 // For Cyclops or any "multi-extruder" that shares a single nozzle.
@@ -534,21 +538,21 @@
  //**!============================== Delta Parameters ===========================
  //**!===========================================================================
 
-  // Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
+  //? Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
   #define DELTA_PRINTABLE_RADIUS 185.0   // (mm)
-  // Center-to-center distance of the holes in the diagonal push rods.
+  //? Center-to-center distance of the holes in the diagonal push rods.
   #define DELTA_DIAGONAL_ROD 440.0      // (mm)
-  // Horizontal distance bridged by diagonal push rods when effector is centered.
+  //? Horizontal distance bridged by diagonal push rods when effector is centered.
   #define DELTA_RADIUS 227.0             // (mm) Get this value from G33 auto calibrate
   
-  // Distance between bed and nozzle Z home position
+  //? Distance between bed and nozzle Z home position
   #define DELTA_HEIGHT 455.00             // (mm) Get this value from G33 auto calibrate
 
   #define DELTA_ENDSTOP_ADJ { 0.0, 0.0, 0.0 } // Get these values from G33 auto calibrate
 
-  // Trim adjustments for individual towers
-  // tower angle corrections for X and Y tower / rotate XYZ so Z tower angle = 0
-  // measured in degrees anticlockwise looking from above the printer
+  //? Trim adjustments for individual towers
+  //? tower angle corrections for X and Y tower / rotate XYZ so Z tower angle = 0
+  //? measured in degrees anticlockwise looking from above the printer
   #define DELTA_TOWER_ANGLE_TRIM { 0.0, 0.0, 0.0 } // Get these values from G33 auto calibrate
 
   // Delta radius and diagonal rod adjustments (mm)
