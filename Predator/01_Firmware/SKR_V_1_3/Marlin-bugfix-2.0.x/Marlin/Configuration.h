@@ -1749,7 +1749,9 @@
 // Note: Usually sold with a white PCB.
 //! Display maly uzký co je na Linear + 
 //#define REPRAP_DISCOUNT_SMART_CONTROLLER
-
+//
+#define FYSETC_MINI_12864_PANEL
+//
 //
 // Original RADDS LCD Display+Encoder+SDCardReader
 // http://doku.radds.org/dokumentation/lcd-display/
@@ -1888,7 +1890,7 @@
 //! RepRapDiscount FULL GRAPHIC Smart Controller
 // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller
 //
-#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+//#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
 
 //
 // ReprapWorld Graphical LCD
