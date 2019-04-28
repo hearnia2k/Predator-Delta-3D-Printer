@@ -123,7 +123,7 @@ typedef struct LEDColor {
 #else
   #define MakeLEDColor(R,G,B,W,I)   LEDColor(R, G, B)
 #endif
-
+//! IK- Define pro jednotlivy setup barev
 #define LEDColorOff()             LEDColor(  0,   0,   0)
 #define LEDColorRed()             LEDColor(255,   0,   0)
 #if ENABLED(LED_COLORS_REDUCE_GREEN)
@@ -177,6 +177,7 @@ public:
   static inline void set_green() { set_color(LEDColorGreen()); }
   static inline void set_white() { set_color(LEDColorWhite()); }
 
+//! IK - nastaveni barvy pro LCD display mini12864 RGB
   #if ENABLED(LED_COLOR_PRESETS)
     static const LEDColor defaultLEDColor;
     static inline void set_default()  { set_color(defaultLEDColor); }

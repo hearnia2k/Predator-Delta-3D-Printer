@@ -2117,7 +2117,8 @@
 // Temperature status LEDs that display the hotend and bed temperature.
 // If all hotends, bed temperature, and target temperature are under 54C
 // then the BLUE led is on. Otherwise the RED led is on. (1C hysteresis)
-//#define TEMP_STAT_LEDS
+//! IK- Test LED stavu pro hotend.. potreba otestovat
+#define TEMP_STAT_LEDS
 
 // SkeinForge sends the wrong arc g-codes when using Arc Point as fillet procedure
 //#define SF_ARC_FIX
@@ -2157,14 +2158,16 @@
  * LED Type. Enable only one of the following two options.
  *
  */
-//#define RGB_LED
+//!IK - test pro RGB led na display
+#define RGB_LED
 //#define RGBW_LED
 
+//!IK - dodefinování pinu pro RGB na display
 #if EITHER(RGB_LED, RGBW_LED)
-  //#define RGB_LED_R_PIN 34
-  //#define RGB_LED_G_PIN 43
-  //#define RGB_LED_B_PIN 35
-  //#define RGB_LED_W_PIN -1
+  #define RGB_LED_R_PIN P1_21 //!Pinout pro mini12864
+  #define RGB_LED_G_PIN P1_22 //!Pinout pro mini12864
+  #define RGB_LED_B_PIN P1_23 //!Pinout pro mini12864
+  #define RGB_LED_W_PIN -1
 #endif
 
 // Support for Adafruit Neopixel LED driver

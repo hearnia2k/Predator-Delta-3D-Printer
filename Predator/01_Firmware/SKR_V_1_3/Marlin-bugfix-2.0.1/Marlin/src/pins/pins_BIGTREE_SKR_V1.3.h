@@ -241,7 +241,10 @@
       #define SCK_PIN         P0_15
       #define SS_PIN          P0_16
       #define MISO_PIN        P0_17
-      
+      #define STAT_LED_RED_PIN  P1_21
+      #define STAT_LED_BLUE_PIN P1_23
+
+
       #define LCD_BACKLIGHT_PIN -1
 
       #define LCD_RESET_PIN P1_20   // Must be high or open for LCD to operate normally.
