@@ -1,6 +1,6 @@
 
 #pragma once
-
+//! IK
 //!===========================================================================
 //!=========================== DELTA Printer Predator Setup ==================
 //!===========================================================================
@@ -10,22 +10,24 @@
 //!== * TMC 2208 Standalone                                                 ==
 //!== * Display mini 12864 Fystec HD RGB                                    ==
 //!== Please before you change anything be sure you know what you doing..   ==
-//!==                                                                       ==
+//!== If you are not sure or have a question just ask me or add issue..     ==                                                                  ==
 //!===========================================================================
 
 
 // Anycubic Probe version 1 or 2 see README.md; 0 for no probe
-//** Predator použivat typ 2 ! 
+//**! IK Predator použivat typ 2 !!
+//**! IK Predator original using type 2 !! 
 #define ANYCUBIC_PROBE_VERSION 2
 
 // Heated Bed:
 // 0 ... no heated bed
 // 1 ... aluminium heated bed with "BuildTak-like" sticker
 // 2 ... ultrabase heated bed
-//**! Predator Použiva typ 2
+//**! IK Predator Použiva typ 2
+//**! IK Predator used type 2
 #define ANYCUBIC_KOSSEL_ENABLE_BED 2
 
-//** Predator použivat typ 2 ! 
+//**! IK Info Version 
 #define CONFIGURATION_H_VERSION 020000
 
 
@@ -36,14 +38,15 @@
 // build by the user have been successfully uploaded into firmware.
 #define STRING_CONFIG_H_AUTHOR "Ivan Kveton / ReplicatorCZ" // Who made the changes.
 #define SHOW_BOOTSCREEN
-#define STRING_SPLASH_LINE1 "Marlin 2.0" // will be shown during bootup in line 1
-#define STRING_SPLASH_LINE2 "Replicator CZ"         // will be shown during bootup in line 2
-#define STRING_SPLASH_LINE3 "Predator" //** uvidime jestli tohle proleze
+#define STRING_SPLASH_LINE1 "Marlin 2.0"      // will be shown during bootup in line 1
+#define STRING_SPLASH_LINE2 "Replicator CZ"   // will be shown during bootup in line 2
 
 // Enable to show the bitmap in Marlin/_Bootscreen.h on startup.
+//**! IK work in progress
 //#define SHOW_CUSTOM_BOOTSCREEN
 
 // Enable to show the bitmap in Marlin/_Statusscreen.h on the status screen.
+//**! IK work in progress
 //#define CUSTOM_STATUS_SCREEN_IMAGE
 
 // @section machine
@@ -55,6 +58,8 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
+//**! IK for functionality usb connection use 0 !!
+//**! IK pro funkcni pripojeni usb nastav 0!!
 #define SERIAL_PORT 0
 
 /**
@@ -64,6 +69,8 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
+//**! IK for functionality usb connection use -1 !!
+//**! IK pro funkcni pripojeni usb nastav -1 !!
 #define SERIAL_PORT_2 -1
 
 /**
@@ -75,6 +82,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
+//**! IK Baudrate 115200 only !!
 #define BAUDRATE 115200
 
 // Enable the Bluetooth serial interface on AT90USB devices
@@ -82,18 +90,22 @@
 
 // The following define selects which electronics board you have.
 // Please choose the name from boards.h that matches your setup
+//**! IK name of the skr1.3 is BOARD_BIGTREE_SKR_V1_3 !!
 #ifndef MOTHERBOARD
   #define MOTHERBOARD BOARD_BIGTREE_SKR_V1_3
 #endif
 
 // Optional custom name for your RepStrap or other custom machine
 // Displayed in the LCD "Ready" message
+//**! IK custom machine name
+//**! IK jmeno tiskarny
 #define CUSTOM_MACHINE_NAME "Predator"
 
 // @section extruder
 
 // This defines the number of extruders
 // :[1, 2, 3, 4, 5, 6]
+//**! IK in future i plane multimaterial setup 
 #define EXTRUDERS 1
 
 // Generally expected filament diameter (1.75, 2.85, 3.0, ...). Used for Volumetric, Filament Width Sensor, etc.
@@ -498,6 +510,7 @@
  * Prevent a single extrusion longer than EXTRUDE_MAXLENGTH.
  * Note: For Bowden Extruders make this large enough to allow load/unload.
  */
+//**! IK for BMG extruder need more lenght prepare for script
 #define PREVENT_LENGTHY_EXTRUDE
 #define EXTRUDE_MAXLENGTH 750
 
@@ -517,7 +530,8 @@
  * If you get "Thermal Runaway" or "Heating failed" errors the
  * details can be tuned in Configuration_adv.h
  */
-
+//**! IK never turn this shit off!!
+//**! IK nikdy nevypinat!!
 #define THERMAL_PROTECTION_HOTENDS // Enable thermal protection for all extruders
 #define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
 #define THERMAL_PROTECTION_CHAMBER // Enable thermal protection for the heated chamber
@@ -534,6 +548,8 @@
   // Make delta curves from many straight lines (linear interpolation).
   // This is a trade-off between visible corners (not enough segments)
   // and processor overload (too many expensive sqrt calls).
+  //**! IK Tested 200 - problem "parkinson moves"
+  //**! IK Tested 160 - moves are smooth 
   #define DELTA_SEGMENTS_PER_SECOND 160 //! original 200 , Predator 160, Linear+ 160
 
   // After homing move down to a height where XY movement is unconstrained
@@ -553,6 +569,8 @@
 
   #if ENABLED(DELTA_AUTO_CALIBRATION)
     // set the default number of probe points : n*n (1 -> 7)
+    //**! IK Tested all variants best solution is 6!
+    //**! IK testovani nejlepsi je 6!
     #define DELTA_CALIBRATION_DEFAULT_POINTS 6
   #endif
 
@@ -566,18 +584,20 @@
 //**!===========================================================================
  //**!============================== Delta Parameters ===========================
  //**!===========================================================================
-
- 
+//**! IK Be carefull this is most important part if someting changed here could cause serious damage!!
+//**! IK Also if you have other diameters or some problems with parameters try to mesure them again and correct just for you machine!!!
+//**! IK Parametry Delty nemenit!! budte obezretni pri nastavovani muze se stat ze spatne parametry poskodi stroj!!
+//**! IK Pokud nebudou parametry sedet je mozne provest korekci ale pouzijte zmeny jen na vasi konfiguraci!!
    
-  //? Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
+  //**! Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
   #define DELTA_PRINTABLE_RADIUS 185.0   // (mm)
-  //? Center-to-center distance of the holes in the diagonal push rods.
+  //**! Center-to-center distance of the holes in the diagonal push rods.
   #define DELTA_DIAGONAL_ROD 440.0      // (mm)
-  //? Horizontal distance bridged by diagonal push rods when effector is centered.
+  //**! Horizontal distance bridged by diagonal push rods when effector is centered.
   #define DELTA_RADIUS 227.0             // (mm) Get this value from G33 auto calibrate
   
 
-  //? Distance between bed and nozzle Z home position
+  //**! Distance between bed and nozzle Z home position
   #define DELTA_HEIGHT 455.00             // (mm) Get this value from G33 auto calibrate
 
   #define DELTA_ENDSTOP_ADJ { 0.0, 0.0, 0.0 } // Get these values from G33 auto calibrate
@@ -593,9 +613,9 @@
 
 #endif
 
-//===========================================================================
-//============================== Endstop Settings ===========================
-//===========================================================================
+//!===========================================================================
+//!============================== Endstop Settings ===========================
+//!===========================================================================
 
 // @section homing
 
@@ -607,6 +627,8 @@
 #if ANYCUBIC_PROBE_VERSION > 0
   #define USE_ZMIN_PLUG // a Z probe
 #endif
+//**! IK Delta homing always to max!!
+//**! IK Delta homuje vzddy do max hodnot!!
 #define USE_XMAX_PLUG
 #define USE_YMAX_PLUG
 #define USE_ZMAX_PLUG
@@ -661,7 +683,9 @@
  *          TMC5160, TMC5160_STANDALONE
  * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'L6470', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
  */
- //! USE RIGHT DRIVERS !!
+ //! IK USE RIGHT DRIVERS !! also right jumpers via skr manual
+ //! IK Pouzijte spravne drivery cetne jumperu na desce!! viz skr manuals
+
 #define X_DRIVER_TYPE  TMC2208_STANDALONE
 #define Y_DRIVER_TYPE  TMC2208_STANDALONE
 #define Z_DRIVER_TYPE  TMC2208_STANDALONE
@@ -703,7 +727,7 @@
 /**
  * Default Settings
  *
- * These settings can be reset by M502
+ *! These settings can be reset by M502
  *
  * Note that if EEPROM is enabled, saved values will override these.
  */
@@ -717,22 +741,26 @@
 
 /**
  * Default Axis Steps Per Unit (steps/mm)
- * Override with M92
+ * !Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
 // variables to calculate steps
+//**! IK Basic setup for Predator
+//**! IK Zakkladni nastaveni pr oPredatora
 #define XYZ_FULL_STEPS_PER_ROTATION 200
 #define XYZ_MICROSTEPS 16
 #define XYZ_BELT_PITCH 2
 #define XYZ_PULLEY_TEETH 20
 
 // delta speeds must be the same on xyz
+//**! IK default steps are 80mm/pu for extruder titan it is 397.0 
+//**! IK defaultni kroky jsou 80mm pro extrudfer titan je to 397.0
 #define DEFAULT_XYZ_STEPS_PER_UNIT ((XYZ_FULL_STEPS_PER_ROTATION) * (XYZ_MICROSTEPS) / double(XYZ_BELT_PITCH) / double(XYZ_PULLEY_TEETH)) // 80
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { DEFAULT_XYZ_STEPS_PER_UNIT, DEFAULT_XYZ_STEPS_PER_UNIT, DEFAULT_XYZ_STEPS_PER_UNIT, 397.0 }  // default steps per unit for Kossel (GT2, 20 tooth)
 
 /**
  * Default Max Feed Rate (mm/s)
- * Override with M203
+ *! Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
 #define DEFAULT_MAX_FEEDRATE          { 300, 300, 300, 25}
@@ -740,7 +768,7 @@
 /**
  * Default Max Acceleration (change/s) change = mm/s
  * (Maximum start speed for accelerated moves)
- * Override with M201
+ *! Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
 #define DEFAULT_MAX_ACCELERATION       { 4000, 4000, 4000, 4000 }
@@ -970,7 +998,7 @@
   #define Z_PROBE_OFFSET_FROM_EXTRUDER   0    // Z offset: -below +above  [the nozzle]
 #endif
 
-// Certain types of probes need to stay away from edges
+//! Certain types of probes need to stay away from edges
 #define MIN_PROBE_EDGE 5
 
 // X and Y axis travel speed (mm/m) between probes
@@ -1049,6 +1077,7 @@
 #define DISABLE_Z false
 
 // Warn on display about possibly reduced accuracy
+//**! IK Otestovat
 //#define DISABLE_REDUCED_ACCURACY_WARNING
 
 // @section extruder
@@ -1083,17 +1112,18 @@
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
-#define X_HOME_DIR 1  // deltas always home to max
+//**! IK for sensoreless use change dir and also change dir for motors !! Not tested yet but someone have this issue
+#define X_HOME_DIR 1  //! deltas always home to max
 #define Y_HOME_DIR 1
 #define Z_HOME_DIR 1
 
 // @section machine
 
-// The size of the print bed
+//! The size of the print bed
 #define X_BED_SIZE ((DELTA_PRINTABLE_RADIUS) * 2)
 #define Y_BED_SIZE ((DELTA_PRINTABLE_RADIUS) * 2)
 
-// Travel limits (mm) after homing, corresponding to endstop positions.
+//! Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS -(DELTA_PRINTABLE_RADIUS)
 #define Y_MIN_POS -(DELTA_PRINTABLE_RADIUS)
 #define Z_MIN_POS 0
@@ -1111,6 +1141,7 @@
  */
 
 // Min software endstops constrain movement within minimum coordinate bounds
+//! IK Check if not valid with Filament sensor !! 
 #define MIN_SOFTWARE_ENDSTOPS
 #if ENABLED(MIN_SOFTWARE_ENDSTOPS)
   #define MIN_SOFTWARE_ENDSTOP_X
