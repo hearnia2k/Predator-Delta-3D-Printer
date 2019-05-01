@@ -1,5 +1,7 @@
 # Predator-Delta-3D-Printer
 Predator Delta 3D Printer
+Project for update FW Marlin 2.0.x and stuff around Delta Printer Predator
+for donate (coffe money) u could use this link paypal.me/ReplicatorCZ thank you for any Donate! 
 *****
 19.04.2019   
 * Started GitHub Project Predator Delta 3D Printer   
