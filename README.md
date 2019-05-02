@@ -1,3 +1,4 @@
+theme: jekyll-theme-hacker
 # Predator-Delta-3D-Printer
 Predator Delta 3D Printer
 Project for update FW Marlin 2.0.x and stuff around Delta Printer Predator
