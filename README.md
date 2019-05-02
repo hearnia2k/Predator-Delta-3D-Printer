@@ -20,3 +20,7 @@ for donate (coffe money) u could use this link paypal.me/ReplicatorCZ thank you 
 * Marlin 2.0.x is old one 
 * Marlin 2.0.1 is last updated !! also working mini 12864!! 
 *****
+02.05.2019
+* test Jekkill theme .. 
+* upload some code comments
+*****
